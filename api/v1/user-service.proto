@@ -1,0 +1,64 @@
+syntax = "proto3";
+
+package v1;
+
+//import "google/api/annotations.proto";
+import "google/protobuf/timestamp.proto";
+
+option go_package = "github.com/aerodinamicat/thisisme01/api/v1";
+
+message User {
+    string id = 1;
+    string email = 2;
+    string password = 3;
+    google.protobuf.Timestamp created_at = 4;
+    google.protobuf.Timestamp updated_at = 5;
+    google.protobuf.Timestamp deleted_at = 6;
+}
+
+message CreateRequest {
+    User user = 1;
+}
+message CreateResponse {
+    string id = 1;
+}
+
+message GetRequest {
+    string id = 1;
+}
+message GetResponse {
+    User user = 1;
+}
+
+message UpdateRequest {
+    User user = 1;
+}
+message UpdateResponse {
+    string rows_affected = 1;
+}
+
+message DeleteRequest {
+    string id = 1;
+}
+message DeleteResponse {
+    string rows_affected = 1;
+}
+
+message ListRequest {}
+message ListResponse {
+    repeated User users = 1;
+}
+
+service UserService {
+    /*rpc Create(CreateRequest) returns (CreateResponse){
+        option (google.api.http) = {
+            post: "/users"
+            body: "*"
+        };
+    }*/
+    rpc Create(CreateRequest) returns (CreateResponse);
+    rpc Get(GetRequest) returns (GetResponse);
+    rpc Update(UpdateRequest) returns (UpdateResponse);
+    rpc Delete(DeleteRequest) returns (DeleteResponse);
+    rpc List(ListRequest) returns (ListResponse);
+}

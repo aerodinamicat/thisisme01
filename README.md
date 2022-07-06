@@ -1,10 +1,10 @@
 # This is me - 01
 gRPC Server with standard REST API methods (CRUD):
-- Create
-- Get (Read through 'get' method)
-- Update
-- Delete
-- List (Read through 'post' method)
+- Create.
+- Get (Read through 'get' method).
+- Update.
+- Delete.
+- List (Read through 'post' method).
 
 ### How to test it
 Execute, on project's root parent directory:
